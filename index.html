@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Listado de Productos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <img src="/images.jpg" alt="Logo de la tienda" class="logo">
+    </nav>
+
+    <main>
+
+        <!-- Título principal -->
+        <header>
+            <h1>Listado de Productos</h1>
+            <h4>Ingrese el nombre del producto</h4>
+        </header>
+
+        <!-- Buscador -->
+        <section class="buscador">
+            <input
+                type="text"
+                class="buscadorcito"
+                id="tungtung"
+                placeholder="Buscar producto..."
+                autocomplete="off"
+            >
+        </section>
+
+        <!-- Botón para agregar productos -->
+        <section class="acciones">
+            <button
+                type="button"
+                id="btnAgregar"
+                class="btn-agregar"
+            >
+                + Agregar producto
+            </button>
+        </section>
+
+        <!-- Contenedor de productos -->
+        <section id="productos" class="productos">
+            <!-- Los productos se cargarán dinámicamente desde JSON Server -->
+        </section>
+
+    </main>
+
+    <!-- Modal para mostrar detalles del producto -->
+    <div id="miModal" class="modal" aria-hidden="true">
+
+        <div
+            class="contenido-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloModal"
+        >
+
+            <!-- Botón para cerrar -->
+            <button
+                type="button"
+                class="btn-cerrar"
+                id="cerrarModal"
+                aria-label="Cerrar ventana"
+            >
+                &times;
+            </button>
+
+            <!-- Detalles del producto -->
+            <div id="detallesProducto">
+                <!-- Información dinámica del producto -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Modal para agregar y modificar productos -->
+    <div id="modalFormulario" class="modal" aria-hidden="true">
+
+        <div
+            class="contenido-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloFormulario"
+        >
+
+            <!-- Botón para cerrar -->
+            <button
+                type="button"
+                id="cerrarFormulario"
+                class="btn-cerrar"
+                aria-label="Cerrar formulario"
+            >
+                &times;
+            </button>
+
+            <!-- Título del formulario -->
+            <h2 id="tituloFormulario">Agregar producto</h2>
+
+            <!-- Formulario -->
+            <form id="formProducto">
+
+                <!-- ID del producto para modificar -->
+                <input type="hidden" id="productoId">
+
+                <label for="nombre">Nombre del producto:</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ingrese el nombre"
+                    required
+                >
+
+                <label for="precio">Precio:</label>
+                <input
+                    type="number"
+                    id="precio"
+                    placeholder="Ingrese el precio"
+                    min="0"
+                    required
+                >
+
+                <label for="descripcion">Descripción:</label>
+                <textarea
+                    id="descripcion"
+                    placeholder="Ingrese la descripción"
+                    required
+                ></textarea>
+
+                <label for="imagen">Imagen (URL):</label>
+                <input
+                    type="text"
+                    id="imagen"
+                    placeholder="Ingrese la URL de la imagen"
+                >
+
+                <!-- Botón para guardar -->
+                <button type="submit" id="btnGuardar">
+                    Guardar producto
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
